@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: edu.westga.devops.a4.test.view.main_window.TestMakeGuess
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.824 s <<< FAILURE! - in edu.westga.devops.a4.test.view.main_window.TestMakeGuess
+makeGuessThatIsCorrect  Time elapsed: 0.953 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: TextInputControl has text "Sucessfully guessed the number, new number has been generated, try again."
+     but: was TextArea with text: "Guess is too low, try again."
+	at edu.westga.devops.a4.test.view.main_window.TestMakeGuess.makeGuessThatIsCorrect(TestMakeGuess.java:82)
+
