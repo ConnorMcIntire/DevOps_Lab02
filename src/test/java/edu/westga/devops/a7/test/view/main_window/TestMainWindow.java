@@ -28,7 +28,6 @@ public class TestMainWindow extends ApplicationTest {
         clickOn("#itemNameField").write("Apples");
         clickOn("#addItemButton");
 
-        @SuppressWarnings("unchecked")
         ListView<Item> itemList = lookup("#itemList").query();
         assertEquals(1, itemList.getItems().size());
         assertTrue(itemList.getItems().get(0).toString().contains("Apples"));
@@ -42,4 +41,37 @@ public class TestMainWindow extends ApplicationTest {
         assertTrue(lookup("#errorLabel").queryLabeled().isVisible());
         assertEquals("Item name must not be empty", lookup("#errorLabel").queryLabeled().getText());
     }
+	
+	@Test
+	public void testRemoveSelectedItem() {
+		clickOn("#itemNameField").write("Bananas");
+		clickOn("#addItemButton");
+
+		
+		ListView<Item> itemList = lookup("#itemList").query();
+
+		interact(() -> itemList.getSelectionModel().select(0));
+		clickOn("#removeItemButton");
+
+		assertEquals(0, itemList.getItems().size());
+		
+	}
+	
+	@Test
+	public void testRemoveWithoutSelection_ShowsError() {
+		clickOn("#itemNameField").write("Milk");
+		clickOn("#addItemButton");
+
+		
+		
+		ListView<Item> itemList = lookup("#itemList").query();
+		interact(() -> itemList.getSelectionModel().clearSelection());
+
+		
+		clickOn("#removeItemButton");
+
+		
+		assertTrue(lookup("#errorLabel").queryLabeled().isVisible());
+		assertEquals("You must select an item to remove.", lookup("#errorLabel").queryLabeled().getText());
+	}
 }
