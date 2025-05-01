@@ -22,6 +22,9 @@ public class MainWindow {
 
     @FXML
     private ListView<Item> itemList;
+	
+	@FXML
+	private Button removeItemButton;
 
     private ObservableList<Item> shoppingList;
 
@@ -30,8 +33,10 @@ public class MainWindow {
         this.shoppingList = FXCollections.observableArrayList();
         this.itemList.setItems(this.shoppingList);
         this.errorLabel.setVisible(false); 
+		
 
         this.addItemButton.setOnAction(e -> this.handleAddItem());
+		this.removeItemButton.setOnAction(e -> this.handleRemoveItem());
     }
 
     private void handleAddItem() {
@@ -47,4 +52,17 @@ public class MainWindow {
             this.errorLabel.setVisible(false);
         }
     }
+	
+	private void handleRemoveItem() {
+		Item selectedItem = this.itemList.getSelectionModel().getSelectedItem(); 
+    
+		if (selectedItem == null) {
+			this.errorLabel.setText("You must select an item to remove.");
+			this.errorLabel.setVisible(true);
+			return;
+		}
+
+		this.shoppingList.remove(selectedItem);
+		this.errorLabel.setVisible(false);
+	}
 }
