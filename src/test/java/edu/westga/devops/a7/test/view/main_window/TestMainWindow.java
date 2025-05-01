@@ -74,4 +74,31 @@ public class TestMainWindow extends ApplicationTest {
 		assertTrue(lookup("#errorLabel").queryLabeled().isVisible());
 		assertEquals("You must select an item to remove.", lookup("#errorLabel").queryLabeled().getText());
 	}
+	
+	@Test
+    public void testChangeQuantity_Positive() {
+        
+        clickOn("#itemNameField").write("Apples");
+        clickOn("#addItemButton");
+
+        
+        clickOn("#itemList").clickOn("Apples");  
+        clickOn("#itemNameField").eraseText(10).write("3");  
+        clickOn("#changeQuantityButton");
+		
+		sleep(300);
+
+        
+        ListView<Item> itemList = lookup("#itemList").query();
+        Item updatedItem = itemList.getItems().get(0);
+       
+        assertTrue(updatedItem.toString().contains("3"));
+    }
+
+   
+    
+
+    
+
+    
 }

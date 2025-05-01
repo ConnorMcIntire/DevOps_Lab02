@@ -12,12 +12,12 @@ public class TestItem {
     public void testCreateItem() {
         Item item = new Item("Milk");
         assertEquals("Milk", item.getName());
-        assertEquals(0, item.getQuantity());
+        assertEquals(1, item.getQuantity());
     }
 
     @Test
     public void testToStringFormat() {
         Item item = new Item("Bread");
-        assertEquals("Bread (x0)", item.toString());
+        assertEquals("Bread (x1)", item.toString());
     }
 }

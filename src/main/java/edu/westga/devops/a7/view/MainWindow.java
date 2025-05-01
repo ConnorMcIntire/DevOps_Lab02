@@ -16,7 +16,10 @@ public class MainWindow {
 
     @FXML
     private Button addItemButton;
-
+	
+	@FXML
+    private Button changeQuantityButton;
+	
     @FXML
     private Label errorLabel;
 
@@ -37,6 +40,7 @@ public class MainWindow {
 
         this.addItemButton.setOnAction(e -> this.handleAddItem());
 		this.removeItemButton.setOnAction(e -> this.handleRemoveItem());
+		this.changeQuantityButton.setOnAction(e -> this.handleChangeQuantity());
     }
 
     private void handleAddItem() {
@@ -65,4 +69,34 @@ public class MainWindow {
 		this.shoppingList.remove(selectedItem);
 		this.errorLabel.setVisible(false);
 	}
+	
+	private void handleChangeQuantity() {
+        Item selectedItem = this.itemList.getSelectionModel().getSelectedItem();
+        String quantityText = this.itemNameField.getText().trim();  
+
+        if (selectedItem == null) {
+            this.errorLabel.setText("You must select an item to change its quantity.");
+            this.errorLabel.setVisible(true);
+            return;
+        }
+
+        try {
+            int quantity = Integer.parseInt(quantityText);
+
+            if (quantity <= 0) {
+                this.errorLabel.setText("You must provide a positive quantity.");
+                this.errorLabel.setVisible(true);
+                return;
+            }
+
+            selectedItem.setQuantity(quantity);
+			this.itemList.refresh();
+			
+            this.errorLabel.setVisible(false);
+
+        } catch (NumberFormatException e) {
+            this.errorLabel.setText("Please enter a valid number for quantity.");
+            this.errorLabel.setVisible(true);
+        }
+    }
 }
