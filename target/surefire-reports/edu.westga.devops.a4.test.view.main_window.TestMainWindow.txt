@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.westga.devops.a4.test.view.main_window.TestMainWindow
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.834 s - in edu.westga.devops.a4.test.view.main_window.TestMainWindow
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.139 s <<< FAILURE! - in edu.westga.devops.a4.test.view.main_window.TestMainWindow
+testChangeQuantity_Positive  Time elapsed: 2.197 s  <<< ERROR!
+org.testfx.api.FxRobotException: the query "Apples" returned no nodes.
+	at edu.westga.devops.a4.test.view.main_window.TestMainWindow.testChangeQuantity_Positive(TestMainWindow.java:85)
+

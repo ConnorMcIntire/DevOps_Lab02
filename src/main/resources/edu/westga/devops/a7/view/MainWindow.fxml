@@ -19,7 +19,8 @@
       <ListView fx:id="itemList" layoutX="180.0" layoutY="106.0" prefHeight="300.0" prefWidth="200.0" />
       <TextField fx:id="itemNameField" layoutX="182.0" layoutY="426.0" prefHeight="25.0" prefWidth="200.0" />
       <Button fx:id="addItemButton" layoutX="182.0" layoutY="475.0" mnemonicParsing="false" text="Add Item" textAlignment="CENTER" />
-      <Label fx:id="errorLabel" layoutX="213.0" layoutY="458.0" text="An item must be selected" textFill="#cd0e0e" />
+      <Label fx:id="errorLabel" layoutX="207.0" layoutY="451.0" text="An item must be selected" textFill="#cd0e0e" />
       <Button fx:id="removeItemButton" layoutX="295.0" layoutY="475.0" mnemonicParsing="false" text="Remove Item" />
+      <Button fx:id="changeQuantityButton" layoutX="222.0" layoutY="506.0" mnemonicParsing="false" text="Change Quantity" />
    </children>
 </AnchorPane>
