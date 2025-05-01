@@ -11,7 +11,7 @@
 <AnchorPane minHeight="99.0" minWidth="160.0" prefHeight="664.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.devops.a7.view.MainWindow">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#64e166" height="671.0" stroke="BLACK" strokeType="INSIDE" width="415.0" />
-      <Label layoutX="108.0" layoutY="24.0" text="Shopping List">
+      <Label layoutX="108.0" layoutY="24.0" text="Connor McIntire Shopping List">
          <font>
             <Font size="33.0" />
          </font>

@@ -29,7 +29,7 @@ public class MainWindow {
     public void initialize() {
         this.shoppingList = FXCollections.observableArrayList();
         this.itemList.setItems(this.shoppingList);
-        this.errorLabel.setVisible(false); // Hide error by default
+        this.errorLabel.setVisible(false); 
 
         this.addItemButton.setOnAction(e -> this.handleAddItem());
     }
